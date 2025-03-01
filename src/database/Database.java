@@ -13,22 +13,29 @@ public class Database {
 
     public Database() {}
 
-    public void insert(String url,
-                       int status_code
-                       ) throws SQLException {
+    public void insert(String url, int status_code) throws SQLException {
         String query = "INSERT INTO public.monitoramento_apis (url, status_code) VALUES (?, ?)";
 
-        try (
-                Connection connection = DriverManager.getConnection(databaseUrl, databaseUser, databasePassword);
-                PreparedStatement preparedStatement = connection.prepareStatement(query)
-                ){
-            preparedStatement.setString(1, url);
-            preparedStatement.setInt(2, status_code);
-            preparedStatement.execute();
-        } catch (SQLException e) {
-            System.err.println("[ERRO] Erro ao inserir no banco de dados:  " + e.getMessage());
-        }
+        try {
+            // Carrega o driver do PostgreSQL
+            Class.forName("org.postgresql.Driver");
 
+            try (Connection connection = DriverManager.getConnection(databaseUrl, databaseUser, databasePassword);
+                 PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+                preparedStatement.setString(1, url);
+                preparedStatement.setInt(2, status_code);
+                preparedStatement.execute();
+            }
+
+        } catch (ClassNotFoundException e) {
+            System.err.println("[ERRO] Driver do PostgreSQL não encontrado!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.err.println("[ERRO] Erro ao inserir no banco de dados: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
+
 
 }

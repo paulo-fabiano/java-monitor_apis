@@ -1,9 +1,6 @@
 import checkUrl.CheckUrl;
-import database.Database;
 import listaUrls.Url;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("[INFO] Script rodando na porta 8080");
+        System.out.println("[INFO] Script rodando...");
 
         // URLs que serão utilizadas no Script
         Url youtube = new Url("https://youtube.com");

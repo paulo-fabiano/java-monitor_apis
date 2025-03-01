@@ -18,7 +18,30 @@ poderá via `curl` ou `Postman`
 
 ## Requisitos para executar o script
 
-Lembre-se que para executar o script é necessário ter a `JDK - Java Development Kit`.
+Lembre-se que para executar o script é necessário ter a `JDK - Java Development Kit` e também o `Docker` para rodar o banco PostgreSQL.
+
+## Estrutura do banco
+
+Passo a passo 
+
+1. Crie um database com o comando:
+```
+CREATE DATABASE monitoramento;
+```
+
+2. Acesse o database.
+```declarative
+\c monitoramento;
+```
+
+3. Crie uma tabela com o comando:
+```
+CREATE TABLE monitoramento_apis (
+    id SERIAL NOT NULL,
+    url VARCHAR(50) NOT NULL,
+    status_code INTEGER NOT NULL
+);
+```
 
 ## Como executar o scritp
 
@@ -37,13 +60,13 @@ cd java-monitor_apis
 2. Compile o script
 
 ```
-javac Main
+javac Main.java
 ```
 
 3. Execute o script
 
 ```
-java Main
+java -cp ".:postgresql-42.7.3.jar" Main
 ```
 
 Com esses passos já é possível executar o script.
