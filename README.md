@@ -75,5 +75,5 @@ Com esses passos já é possível executar o script.
 
 Entre em contato comigo via:
 
-- [Linkedin](www.linkedin.com/in/paulo-fabiano)
-- [Email](pfabianof@gmail.com)
+- [Linkedin](https://www.linkedin.com/in/paulo-fabiano)
+- [Email](mailto:pfabianof@gmail.com)
