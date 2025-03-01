@@ -10,13 +10,9 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.SQLException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class CheckUrl {
-
-    private LocalDateTime data_teste;
-    private int responseTime;
 
     Database database = new Database();
 
